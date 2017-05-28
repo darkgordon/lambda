@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.naldana.recyclerviewcardview.MainActivity">
-
     <Button
         android:id="@+id/linear_manager_button"
         android:layout_width="match_parent"
