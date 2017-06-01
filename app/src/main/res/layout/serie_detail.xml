@@ -1,58 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    android:layout_height="200dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    card_view:cardCornerRadius="2dp"
+    card_view:cardElevation="10dp"
+    android:layout_margin="0dp"
+    android:id="@+id/cardViewSerie"
+    android:background="@color/cardview_dark_background"
+    card_view:cardUseCompatPadding="true">
 
-    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="230dp"
-        xmlns:tools="http://schemas.android.com/tools"
-        card_view:cardCornerRadius="15dp"
-        card_view:cardElevation="15dp"
-        android:layout_margin="0dp"
-        android:id="@+id/cardViewSerie"
-        android:background="@color/cardview_dark_background"
-        card_view:cardUseCompatPadding="true">
-        <ImageView
-            android:id="@+id/movieImageView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:scaleType="fitXY" />
     <TextView
-        android:layout_gravity="bottom"
-        android:id="@+id/movieTitleTextView"
+        android:id="@+id/serie_titulo_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:gravity="bottom"
         android:text="title Serie"
-        android:background="#59000000"
-        android:textColor="#bbfcfbff"
-        android:textSize="15sp"
+        android:layout_gravity="bottom"
+        android:background="#f0ec1010"
+        android:textColor="#281351"
+        android:textSize="20sp"
         android:textAllCaps="true"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
 
-        <Button
-            android:id="@+id/movieShareButton"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_gravity="bottom|end"
-            android:text="up" />
-    </android.support.v7.widget.CardView>
-</LinearLayout>
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:text="LIKE" />
 
-
-
-
+    <ImageView
+        android:id="@+id/serie_poster_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+         />
 
 
-
+</android.support.v7.widget.CardView>

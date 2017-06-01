@@ -3,6 +3,4 @@
     <string name="linear_layout_manager">LinearLayoutManager</string>
     <string name="grid_layout_manager">GridLayoutManager</string>
     <string name="staggered_grid_layout_manager">StaggeredGridLayoutManager</string>
-    <string name="targ1">text1</string>
-    <string name="targ2">text2</string>
 </resources>

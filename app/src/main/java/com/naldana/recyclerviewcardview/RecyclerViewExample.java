@@ -50,13 +50,13 @@ public class RecyclerViewExample extends AppCompatActivity {
         switch (opcion) {
             case 1:
                 recyclerView.setHasFixedSize(true);
-                StaggeredGridLayoutManager straggLayoutManager = new StaggeredGridLayoutManager(2, GridLayoutManager.VERTICAL);
+                StaggeredGridLayoutManager straggLayoutManager = new StaggeredGridLayoutManager(3, GridLayoutManager.VERTICAL);
                 recyclerView.setLayoutManager(straggLayoutManager);
                 recyclerView.setAdapter(new StaggeredGridLayoutAdapter(this, series));
                 break;
             case 2:
                 recyclerView.setHasFixedSize(true);
-                GridLayoutManager gLayoutManager = new GridLayoutManager(this, 2);
+                GridLayoutManager gLayoutManager = new GridLayoutManager(this, 3);
                 recyclerView.setLayoutManager(gLayoutManager);
                 recyclerView.setAdapter(new Adapter(this, series));
                 break;

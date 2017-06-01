@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -77,16 +76,12 @@ public class StaggeredGridLayoutAdapter extends CustomRecyclerViewAdapter {
         private ImageView poster;
         private TextView title;
         private CardView cardView;
-        private Button like;
-
 
         public ViewHolder(View itemView) {
             super(itemView);
-            poster = (ImageView) itemView.findViewById(R.id.movieImageView);
-            title = (TextView) itemView.findViewById(R.id.movieTitleTextView);
+            poster = (ImageView) itemView.findViewById(R.id.serie_poster_image_view);
+            title = (TextView) itemView.findViewById(R.id.serie_titulo_text_view);
             cardView = (CardView) itemView.findViewById(R.id.cardViewSerie);
-            // trate de agregar ya el boton pero no suele funcionar
-            like=(Button) itemView.findViewById(R.id.movieShareButton);
         }
     }
 
