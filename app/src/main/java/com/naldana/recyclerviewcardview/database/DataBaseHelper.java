@@ -1,6 +1,7 @@
 package com.naldana.recyclerviewcardview.database;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -11,25 +12,28 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Random;
+
 /**
  * Created by rober on 31/5/2017.
  */
 
 public class DataBaseHelper extends SQLiteOpenHelper {
-    private static String TAG="DataBaseHelper";
-    private static String DB_PATH = "";
-    private static String DB_NAME ="series.db";
-    private SQLiteDatabase mDataBase;
-    private final Context mContext;
 
+    private static final String createTable = "CREATE TABLE series(" +
+            "ID INT, titulo TEXT)";
 
+    Random mRandom = new Random();
+
+    public DataBaseHelper(Context context){
+        super(context, "seriesdb", null, 2);
+
+    }
 
     @Override
-    public synchronized void close()
-    {
-        if(mDataBase != null)
-            mDataBase.close();
-        super.close();
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL(createTable);
+        db.execSQL("INSERT INTO series (ID, titulo) VALUES ("+ R.drawable.hora_de_aventura + ", 'Gravity Falls')");
     }
 
     @Override
@@ -37,92 +41,21 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     }
 
-
-    /***********************************ID, TITULO****************************************************/
-        private static final String table_series ="series";
-        private static final String id="id";
-        private static final String titulo= "title";
-
-        public void onCreate(SQLiteDatabase db){
-            String create_series = "CREATE TABLE "+table_series+"("+id+" INTEGER PRIMARY KEY,"+ titulo + " VARCHAR(50))";
-            db.execSQL(create_series);
-        }
-
-        public void borrarSerie(String titleSerie){
-            boolean result = false;
-            String query = "SELECT * FROM "+table_series+" WHERE "+ id + "= \""+titulo+"\"";
-        }
-
-
-    /***************************************************************************************/
-    public DataBaseHelper(Context context)
-    {
-        super(context, DB_NAME, null, 1);
-        if(android.os.Build.VERSION.SDK_INT >= 17){
-            DB_PATH = context.getApplicationInfo().dataDir + "/databases/";
-        }
-        else
-        {
-            DB_PATH = "/data/data/" + context.getPackageName() + "/databases/";
-        }
-        this.mContext = context;
+    public Cursor getCursor(){
+        return getReadableDatabase().query("series", null, null, null, null, null, null);
     }
 
-
-    private boolean checkDataBase()
-    {
-        File dbFile = new File(DB_PATH + DB_NAME);
-        //Log.v("dbFile", dbFile + "   "+ dbFile.exists());
-        return dbFile.exists();
+    public void add(String title){
+        getWritableDatabase().execSQL("INSERT INTO series (ID, titulo) VALUES ("+ mRandom.nextInt(2) +", '"+ title +"')");
     }
 
-
-    private void copyDataBase() throws IOException
-    {
-        InputStream mInput = mContext.getAssets().open(DB_NAME);
-        String outFileName = DB_PATH + DB_NAME;
-        OutputStream mOutput = new FileOutputStream(outFileName);
-        byte[] mBuffer = new byte[1024];
-        int mLength;
-        while ((mLength = mInput.read(mBuffer))>0)
-        {
-            mOutput.write(mBuffer, 0, mLength);
-        }
-        mOutput.flush();
-        mOutput.close();
-        mInput.close();
+    public void delete(String title){
+        getWritableDatabase().execSQL("DELETE * FROM series WHERE titulo = '" + title+ "'");
     }
 
-
-    public void createDataBase() throws IOException
-    {
-        //If the database does not exist, copy it from the assets.
-
-        boolean mDataBaseExist = checkDataBase();
-        if(!mDataBaseExist)
-        {
-            this.getReadableDatabase();
-            this.close();
-            try
-            {
-                copyDataBase();
-                Log.e(TAG, "createDatabase database created");
-            }
-            catch (IOException mIOException)
-            {
-                throw new Error("ErrorCopyingDataBase");
-            }
-        }
+    public void edit(String title, String newTitle){
+        getWritableDatabase().execSQL("Update series SET titulo  = '" + newTitle + "' WHERE titulo = '" + title+"'");
     }
-
-    public boolean openDataBase() throws SQLException
-    {
-        String mPath = DB_PATH + DB_NAME;
-        //Log.v("mPath", mPath);
-        mDataBase = SQLiteDatabase.openDatabase(mPath, null, SQLiteDatabase.CREATE_IF_NECESSARY);
-        //mDataBase = SQLiteDatabase.openDatabase(mPath, null, SQLiteDatabase.NO_LOCALIZED_COLLATORS);
-        return mDataBase != null;
-    }
-
-
 }
+
+
