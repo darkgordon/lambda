@@ -10,13 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
+    import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.naldana.recyclerviewcardview.Adpater.CustomRecyclerViewAdapter;
+import com.naldana.recyclerviewcardview.R;
 
 import java.io.IOException;
 import java.util.Random;
