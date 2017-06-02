@@ -28,22 +28,27 @@
         android:onClick="onClick"
         android:text="@string/staggered_grid_layout_manager"/>
     <EditText
+        android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
+        android:onClick="del"
+        android:id="@+id/delete"
         android:layout_gravity="center"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="BORRAR"/>
+        android:text="BORRA R"/>
 
     <Button
+        android:id="@+id/update"
         android:layout_gravity="center"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="MODIFICAR"/>
 
     <Button
+        android:id="@+id/insert"
         android:layout_gravity="center"
         android:layout_width="150dp"
         android:layout_height="wrap_content"

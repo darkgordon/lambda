@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".RecyclerViewExample"></activity>
+        <activity android:name=".database.Eliminar"></activity>
     </application>
 
 </manifest>
