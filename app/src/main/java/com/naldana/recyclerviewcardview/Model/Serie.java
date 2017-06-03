@@ -14,6 +14,10 @@ public class Serie {
     private int cantTemporadas;
     private String descripcion;
 
+    public Serie(String titulo){
+        this.titulo=titulo;
+    }
+
     public Serie(String titulo, int imgId) {
         this.titulo = titulo;
         this.imgId = imgId;

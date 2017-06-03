@@ -88,6 +88,7 @@ public class BDAdapter extends CustomRecyclerViewAdapter {
             title = (TextView) itemView.findViewById(R.id.serie_titulo_text_viewb);
             linearLayout = (LinearLayout) itemView.findViewById(R.id.cardViewSerieb);
             like = (Button) itemView.findViewById(R.id.buttonb);
+
         }
     }
 

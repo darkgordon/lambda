@@ -13,21 +13,30 @@ import com.naldana.recyclerviewcardview.R;
  */
 
 public class Eliminar extends AppCompatActivity {
-    EditText editText;
-DataBaseHelper mdb;
     Button del;
+    DataBaseHelper mdb;
+    String ed;
+    EditText editText;
+
+
+    //EditText editText;
+
+
+    //Button del;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        editText = (EditText) findViewById(R.id.editText);
-        del= (Button) findViewById(R.id.delete);
-    }
+        del= (Button) findViewById(R.id.eliminar2);
 
-    public void del(View v){
-        String ed;
-        ed = editText.toString();
+    }
+    public void dele(View v){
+
+       String ed = editText.getText().toString();
+
         mdb.delete(ed);
     }
+
+
 
 }

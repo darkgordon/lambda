@@ -29,6 +29,8 @@ public class Adapter extends CustomRecyclerViewAdapter {
     private Activity activity;
     private ArrayList<Serie> series;
 
+      
+
     public Adapter(final Activity activity, final ArrayList<Serie> series) {
         this.activity = activity;
         this.series = series;

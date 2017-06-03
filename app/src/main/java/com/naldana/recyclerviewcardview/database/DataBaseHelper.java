@@ -4,6 +4,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+import android.widget.Toast;
+
 import com.naldana.recyclerviewcardview.R;
 import java.util.Random;
 
@@ -39,11 +42,24 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     public void add(String title){
-        getWritableDatabase().execSQL("INSERT INTO series (ID, titulo) VALUES ("+ mRandom.nextInt(2) +", '"+ title +"')");
+        try {
+            getWritableDatabase().execSQL("INSERT INTO series (ID, titulo) VALUES (" + mRandom.nextInt(2) + ", '" + title + "')");
+            Log.d("ASD","ANADIDO CON EXITO");
+        }catch (Exception e){
+            Log.d("DSA", "Query incorrecta");
+        }
     }
 
     public void delete(String title){
-        getWritableDatabase().execSQL("DELETE * FROM series WHERE titulo = '" + title+ "'");
+        try{
+            getWritableDatabase().execSQL("DELETE FROM series WHERE titulo = '" + title+ "'");
+            //CHECKING IF THE QUERY EXECUTED SUCCESFULLY
+            Log.d("ASD", "Query correcta");
+        }catch(Exception e){
+            //QUERY DID NOT EXECUTE SUCCESFULLY
+            Log.d("DSA", "Query incorrecta");
+        }
+
     }
 
     public void edit(String title, String newTitle){

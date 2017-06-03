@@ -27,18 +27,19 @@
         android:layout_height="wrap_content"
         android:onClick="onClick"
         android:text="@string/staggered_grid_layout_manager"/>
+
     <EditText
         android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
-        android:onClick="del"
-        android:id="@+id/delete"
+        android:onClick="agregar"
+        android:id="@+id/agregarprueba"
         android:layout_gravity="center"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="BORRA R"/>
+        android:text="agregar"/>
 
     <Button
         android:id="@+id/update"
@@ -48,11 +49,12 @@
         android:text="MODIFICAR"/>
 
     <Button
-        android:id="@+id/insert"
+        android:id="@+id/eliminar2"
+        android:onClick="delete"
         android:layout_gravity="center"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="INSERTAR"/>
+        android:text="eliminar"/>
 
 
 
