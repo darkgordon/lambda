@@ -1,6 +1,7 @@
 package com.naldana.recyclerviewcardview;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -11,10 +12,12 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import com.naldana.recyclerviewcardview.Adpater.Adapter;
 import com.naldana.recyclerviewcardview.Adpater.StaggeredGridLayoutAdapter;
 import com.naldana.recyclerviewcardview.Model.Serie;
+import com.naldana.recyclerviewcardview.database.DataBaseHelper;
 
 import java.util.ArrayList;
 
 public class RecyclerViewExample extends AppCompatActivity {
+    DataBaseHelper mdb;
 
     public static final String EXTRA_TYPE_RECYCLER = "com.naladana.EXTRA_TYPE_RECYCLER";
 
@@ -33,6 +36,8 @@ public class RecyclerViewExample extends AppCompatActivity {
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
+        //Cursor c = database.rawQuery(selectQuery, null);
+        //Cursor c= mdb.cr
         ArrayList<Serie> series = new ArrayList<>(2);
 
         series.add(new Serie("Lost", R.drawable.lost));

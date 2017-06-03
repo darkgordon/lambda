@@ -3,6 +3,8 @@ package com.naldana.recyclerviewcardview.Adpater;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Point;
+import android.nfc.Tag;
+import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +30,7 @@ public class Adapter extends CustomRecyclerViewAdapter {
 
     private Activity activity;
     private ArrayList<Serie> series;
+    public static final String TAG="RIPIO";
 
       
 
@@ -47,6 +50,7 @@ public class Adapter extends CustomRecyclerViewAdapter {
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(activity)
                 .inflate(R.layout.serie_detail_b, parent, false);
+        Log.d(TAG, "onBindViewHolder:");
         return new ViewHolder(view);
     }
 
@@ -55,6 +59,7 @@ public class Adapter extends CustomRecyclerViewAdapter {
         final ViewHolder myHolder = (ViewHolder) holder;
         myHolder.poster.setImageResource(series.get(position).getImgId());
         myHolder.title.setText(series.get(position).getTitulo());
+        Log.d(TAG, "onBindViewHolder:"+position);
 
         myHolder.like.setOnClickListener(new View.OnClickListener() {
             @Override

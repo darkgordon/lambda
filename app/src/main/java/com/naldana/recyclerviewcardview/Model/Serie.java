@@ -5,7 +5,8 @@ package com.naldana.recyclerviewcardview.Model;
  */
 
 public class Serie {
-
+    //PONIENDOLE EL ID A LA SERIE
+    int ID;
     private String titulo;
     private int imgId;
     private String genero;
@@ -14,7 +15,7 @@ public class Serie {
     private int cantTemporadas;
     private String descripcion;
 
-    public Serie(String titulo){
+    public Serie(int anInt, String string){
         this.titulo=titulo;
     }
 
@@ -29,6 +30,14 @@ public class Serie {
 
     public void setImgId(int imgId) {
         this.imgId = imgId;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public String getTitulo() {
