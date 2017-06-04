@@ -15,7 +15,7 @@ public class Serie {
     private int cantTemporadas;
     private String descripcion;
 
-    public Serie(int anInt, String string){
+    public Serie(String string){
         this.titulo=titulo;
     }
 

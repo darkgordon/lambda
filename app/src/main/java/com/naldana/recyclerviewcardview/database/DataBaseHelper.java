@@ -19,7 +19,7 @@ import java.util.Random;
  */
 
 public class DataBaseHelper extends SQLiteOpenHelper {
-    private SQLiteDatabase mDb;
+    private SQLiteDatabase mdb;
 
 
     private static final String createTable = "CREATE TABLE series(" +
@@ -31,6 +31,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         super(context, "seriesdb", null, 2);
 
     }
+
+
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -77,23 +80,21 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 //este es el lsit para agarrar
 
-    public List obtenerdatos() {
-        List<Serie> lista = null;
+    /*public ArrayList<Serie> obtenerdatos() {
+        ArrayList<Serie> array = null;
         String llenado = "SELECT * FROM series";
-        Cursor cursor = mDb.rawQuery(llenado, null);
-        lista = new ArrayList<Serie>();
+        Cursor cursor = mdb.rawQuery(llenado, null);
+        array = new ArrayList<Serie>();
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    lista.add(new Serie(cursor.getInt(0), cursor.getString(1)));
+                    array.add(new Serie(cursor.getInt(0), cursor.getString(1)));
                 } while (cursor.moveToNext());
-
-
             }
         }
-        return lista;
+        return array;
     }
-
+*/
 }
 
 

@@ -2,6 +2,7 @@ package com.naldana.recyclerviewcardview;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -12,12 +13,15 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import com.naldana.recyclerviewcardview.Adpater.Adapter;
 import com.naldana.recyclerviewcardview.Adpater.StaggeredGridLayoutAdapter;
 import com.naldana.recyclerviewcardview.Model.Serie;
+import com.naldana.recyclerviewcardview.database.BDAdapter;
 import com.naldana.recyclerviewcardview.database.DataBaseHelper;
 
 import java.util.ArrayList;
 
 public class RecyclerViewExample extends AppCompatActivity {
     DataBaseHelper mdb;
+    Adapter adapter;
+
 
     public static final String EXTRA_TYPE_RECYCLER = "com.naladana.EXTRA_TYPE_RECYCLER";
 
@@ -32,9 +36,22 @@ public class RecyclerViewExample extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view_example);
 
+
+        /*
+        Que se debe hacer yo tengo entendi peque auqi se llama el adaptador por asi decirlo o se podria llamar el databaseHelper
+         */
+        DataBaseHelper mdb=new DataBaseHelper(this);
+
+
+
+
+
+
+
         int opcion = getIntent().getIntExtra(EXTRA_TYPE_RECYCLER, 1);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        //recyclerView.setAdapter(new BDAdapter(this, series));
 
         //Cursor c = database.rawQuery(selectQuery, null);
         //Cursor c= mdb.cr
@@ -63,13 +80,14 @@ public class RecyclerViewExample extends AppCompatActivity {
                 recyclerView.setHasFixedSize(true);
                 GridLayoutManager gLayoutManager = new GridLayoutManager(this, 3);
                 recyclerView.setLayoutManager(gLayoutManager);
-                recyclerView.setAdapter(new Adapter(this, series));
+                recyclerView.setAdapter(new Adapter(this,series));
                 break;
             case 3:
                 recyclerView.setHasFixedSize(true);
                 LinearLayoutManager lLayoutManager = new LinearLayoutManager(this);
                 recyclerView.setLayoutManager(lLayoutManager);
-                recyclerView.setAdapter(new Adapter(this, series));
+                recyclerView.setAdapter(new Adapter(this,series));
+                //entiendo yo que aqui en vez de series es dodne see debe llamar el adaptador, lo itnente y no funciona
                 break;
 
         }
