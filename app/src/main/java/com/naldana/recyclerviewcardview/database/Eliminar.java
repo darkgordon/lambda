@@ -30,13 +30,13 @@ public class Eliminar extends AppCompatActivity {
         del= (Button) findViewById(R.id.eliminar2);
 
     }
-    public void dele(View v){
+   /* public void dele(View v){
 
        String ed = editText.getText().toString();
 
         mdb.delete(ed);
     }
 
-
+*/
 
 }

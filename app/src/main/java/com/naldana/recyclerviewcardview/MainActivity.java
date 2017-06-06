@@ -11,13 +11,14 @@ import android.widget.Toast;
 import com.naldana.recyclerviewcardview.Model.Serie;
 import com.naldana.recyclerviewcardview.database.DataBaseHelper;
 import com.naldana.recyclerviewcardview.database.DatabaseHelperBenji;
+import com.naldana.recyclerviewcardview.database.PruebaConsultas;
 
 public class MainActivity extends AppCompatActivity {
 
     EditText editText;
     Button del;
-    DataBaseHelper mdb;
-    String ed;
+    PruebaConsultas pruebaConsultas;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         editText = (EditText) findViewById(R.id.editText);
         del= (Button) findViewById(R.id.eliminar2);
-        mdb = new DataBaseHelper(this);
+        this.pruebaConsultas=new PruebaConsultas(this);
 
     }
 
@@ -56,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
         String nombre = editText.getText().toString();
 
         //Serie serie =
-          //      new Serie(nombre);
-        mdb.add(nombre);
+        //      new Serie(nombre);
+        pruebaConsultas.add(nombre);
         editText.setText("");
         //quantityBox.setText("");
         //recordar que esto servia antes, quizas algo que pusheo la aeriak no iba osea no servia el boto na;adir pero voy a revisar eso exactamente
@@ -66,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
     public void delete(View view){
 
         String ed = editText.getText().toString();
-        mdb.delete(ed);
-        editText.setText("");
+        pruebaConsultas.delete(ed);
+       editText.setText("");
     }
 
 }

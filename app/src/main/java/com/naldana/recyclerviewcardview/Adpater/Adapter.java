@@ -40,16 +40,12 @@ public class Adapter extends CustomRecyclerViewAdapter {
 
     //SQLiteDatabase database= hpb.getReadableDatabase();
 
-
-
-
-      
-
     public Adapter(final Activity activity, final ArrayList<Serie> series) {
         this.activity = activity;
         this.series = series;
         //este lo trate para que la base abriera alli con un contexto pero nada suele sucerer
-        mdb= new DataBaseHelper(mcontext);
+
+
        //tratando
         //mdb.obtenerdatos();
         setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -107,7 +103,7 @@ public class Adapter extends CustomRecyclerViewAdapter {
     }
     //meotodo para obtener datos de la base revisar posiblemente algo de aqui este malo, [refero dekjarlo aqui para que sea llamado por el
     //adapater
-    public List obtenerdatos() {
+   /* public List obtenerdatos() {
         List<Serie> lista = null;
         Serie serie=null;
         String llenado = "SELECT titulo FROM series";
@@ -124,7 +120,7 @@ public class Adapter extends CustomRecyclerViewAdapter {
         }
         return lista;
     }
-
+*/
 
         }
 

@@ -9,18 +9,21 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 
 import com.naldana.recyclerviewcardview.Adpater.Adapter;
 import com.naldana.recyclerviewcardview.Adpater.StaggeredGridLayoutAdapter;
 import com.naldana.recyclerviewcardview.Model.Serie;
 import com.naldana.recyclerviewcardview.database.BDAdapter;
 import com.naldana.recyclerviewcardview.database.DataBaseHelper;
+import com.naldana.recyclerviewcardview.database.PruebaConsultas;
 
 import java.util.ArrayList;
 
 public class RecyclerViewExample extends AppCompatActivity {
-    DataBaseHelper mdb;
-    Adapter adapter;
+    PruebaConsultas pruebaConsultas;
+    ArrayList<Serie> series;
+
 
 
     public static final String EXTRA_TYPE_RECYCLER = "com.naladana.EXTRA_TYPE_RECYCLER";
@@ -40,23 +43,17 @@ public class RecyclerViewExample extends AppCompatActivity {
         /*
         Que se debe hacer yo tengo entendi peque auqi se llama el adaptador por asi decirlo o se podria llamar el databaseHelper
          */
-        DataBaseHelper mdb=new DataBaseHelper(this);
-
-
-
-
-
-
-
+        pruebaConsultas=new PruebaConsultas(this);
+        series= pruebaConsultas.obtenerdatos();
+        //series=mdb.obtenerdatos();
         int opcion = getIntent().getIntExtra(EXTRA_TYPE_RECYCLER, 1);
-
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         //recyclerView.setAdapter(new BDAdapter(this, series));
 
         //Cursor c = database.rawQuery(selectQuery, null);
         //Cursor c= mdb.cr
-        ArrayList<Serie> series = new ArrayList<>(2);
-
+        //ArrayList<Serie> series = new ArrayList<>(2);
+        /*
         series.add(new Serie("Lost", R.drawable.lost));
         series.add(new Serie("Adeventure Time", R.drawable.hora_de_aventura));
         series.add(new Serie("Lost 1", R.drawable.lost));
@@ -68,13 +65,13 @@ public class RecyclerViewExample extends AppCompatActivity {
         series.add(new Serie("Lost4", R.drawable.lost));
         series.add(new Serie("Adeventure Time4", R.drawable.hora_de_aventura));
 
-
+        */
         switch (opcion) {
             case 1:
                 recyclerView.setHasFixedSize(true);
                 StaggeredGridLayoutManager straggLayoutManager = new StaggeredGridLayoutManager(3, GridLayoutManager.VERTICAL);
                 recyclerView.setLayoutManager(straggLayoutManager);
-                recyclerView.setAdapter(new StaggeredGridLayoutAdapter(this, series));
+                recyclerView.setAdapter(new StaggeredGridLayoutAdapter(this,series));
                 break;
             case 2:
                 recyclerView.setHasFixedSize(true);

@@ -19,6 +19,12 @@ public class Serie {
         this.titulo=titulo;
     }
 
+
+    public Serie(int ID,String titulo){
+        this.ID=ID;
+        this.titulo=titulo;
+    }
+
     public Serie(String titulo, int imgId) {
         this.titulo = titulo;
         this.imgId = imgId;
