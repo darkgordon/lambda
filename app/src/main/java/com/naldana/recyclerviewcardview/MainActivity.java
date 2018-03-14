@@ -14,7 +14,7 @@ import com.naldana.recyclerviewcardview.database.DatabaseHelperBenji;
 import com.naldana.recyclerviewcardview.database.PruebaConsultas;
 
 public class MainActivity extends AppCompatActivity {
-
+        //DSSD S SDS
     EditText editText;
     Button del;
     PruebaConsultas pruebaConsultas;
